@@ -9,7 +9,7 @@ namespace poo {
     class DataHorario {
         friend ostream &operator<<(ostream &output, const DataHorario &dataHorario);
     public:
-        DataHorario(int dia, int mes, int ano, int hora, int minuto, int segundo);
+        DataHorario(int Dia, int Mes, int Ano, int Hora, int Minuto, int Segundo);
         ~DataHorario();
 
         int getDia() const;
@@ -28,7 +28,6 @@ namespace poo {
     private:
         int dia, mes, ano, hora, minuto, segundo;
         int compare(const DataHorario operando) const;
-    
     };
 }
 
