@@ -20,7 +20,7 @@ namespace poo {
 		Operador << 
 	private:
 		string nome_peca;
-		int Poltronas[15][15];
+		string *Pessoa[210];
 	}
 };
 
