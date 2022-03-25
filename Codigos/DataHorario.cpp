@@ -12,7 +12,7 @@ namespace poo {
         //Verificação do limite máximo de "dia" de acordo com o mes.
         if(Mes == 2){
             //Verificação de ano bissexto apenas em fevereiro.
-            if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0))
+            if (((Ano % 4 == 0) && (Ano % 100 != 0)) || (Ano % 400 == 0))
                 dia = (Dia > 0 && Dia <= 29) ? Dia : 1;
             else
                 dia = (Dia > 0 && Dia <= 28) ? Dia : 1;
