@@ -8,11 +8,14 @@ namespace poo {
         return output;
     }
     //Construtor com verificação da data.
-    DataHorario::DataHorario(int Dia, int Mes, int Ano, int Hora, int Minuto, int Segundo)
-    {
+    DataHorario::DataHorario(int Dia, int Mes, int Ano, int Hora, int Minuto, int Segundo) {
         //Verificação do limite máximo de "dia" de acordo com o mes.
         if(Mes == 2){
-            dia = (Dia > 0 && Dia <= 28) ? Dia : 1;
+            //Verificação de ano bissexto apenas em fevereiro.
+            if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0))
+                dia = (Dia > 0 && Dia <= 29) ? Dia : 1;
+            else
+                dia = (Dia > 0 && Dia <= 28) ? Dia : 1;
         }   
         else{
             if(Mes == 4 || Mes == 6 || Mes == 9 || Mes == 11)
@@ -22,7 +25,7 @@ namespace poo {
         }
         //Verificação das demais informações.
         mes = (Mes > 0 && Mes <= 12) ? Mes : 1;
-        ano = (Ano > 0  && Ano >= 2022) ? Ano : 1;
+        ano = (Ano > 0  && Ano <= 2022) ? Ano : 1;
         hora = (Hora >= 0 && Hora < 24) ? Hora : 0;
         minuto = (Minuto >= 0 && Minuto < 60) ? Minuto : 0;
         segundo = (Segundo >= 0 && Segundo <60) ? Segundo : 0;
@@ -31,27 +34,27 @@ namespace poo {
     DataHorario::~DataHorario(){
         cout << "Chamada do destrutor" << endl;
     }
-
+    //Retorna o dia.
     int DataHorario::getDia() const{
         return this->dia;
     }
-
+    //Retorna o mes.
     int DataHorario::getMes() const{
         return this->mes;
     }
-
+    //Retorna o ano.
     int DataHorario::getAno() const{
         return this->ano;
     }
-
+    //Retrona a hora.
     int DataHorario::getHora() const{
         return this->hora;
     }
-
+    //Retorna o minuto.
     int DataHorario::getMinuto() const{
         return this->minuto;
     }
-
+    //Retorna o segundo.
     int DataHorario::getSegundo() const{
         return this->segundo;
     }
