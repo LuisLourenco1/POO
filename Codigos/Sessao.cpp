@@ -18,4 +18,5 @@ Sessao::~Sessao(){
 }
 
 string proximoLivre(){
+  if(pessoa[210] == 
 
