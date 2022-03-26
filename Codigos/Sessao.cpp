@@ -1,12 +1,23 @@
 #include "Sessao.h"
 #include "DataHorario.h"
 #include <string>
+#include <iostream>
 
 using namespace poo;
+
+ostream &operator<<(ostream &output, const Sessao &sessao) {
+    cout << sessao.getNomeDaPeca() << endl;
+}
 
 Sessao::Sessao(string nomeDaPeca, DataHorario &h) : 
     nomeDaPeca(nomeDaPeca), 
     dataHorario(h) {
+    
+    for (int i = 0; i < 15; i++) {
+        for (int j = 0; j < 14; j++) {
+            poltronas[i][j] = NULL;
+        }
+    }
 }
 
 Sessao::~Sessao()
@@ -16,8 +27,26 @@ Sessao::~Sessao()
             delete poltronas[i][j];
         }
     }
-
     delete poltronas;
+    qtdVagasLivres = 15*14;
+}
+
+string Sessao::getNomeDaPeca() const {
+    return this->nomeDaPeca;
+}
+
+int calcularLinha(string posicao) {
+    return posicao[0] - 'A';
+}
+
+int calcularColuna(string posicao) {
+    return stoi(posicao.substr(1)) - 1;
+}
+
+bool Sessao::verifica(string posicao) const {
+    //---
+    return poltronas[calcularLinha(posicao), calcularColuna(posicao)] 
+    == NULL ? 0 : 1;
 }
 
 //POLTRONAS
@@ -39,12 +68,21 @@ N1 N2 N3 N4 N5 N6 N7 N8 N9 N10 N11 N12 N13 N14
 O1 O2 O3 O4 O5 O6 O7 O8 O9 O10 O11 O12 O13 O14
 */
 bool Sessao::ocupa(string posicao, Pessoa &p) {
-    // A = 1 - A = 0
-    // B = 2 - A = 1
-    // C = 3 - A = 2
-    int linha, coluna;
-    linha = posicao[0] - 'A';
-    coluna = stoi(posicao.substr(1)) - 1;
+    // Se estiver ocupado, não pode ocupar.
+    if (verifica(posicao)){
+        return false;
+    }
+
+    int linha = calcularLinha(posicao);
+    int coluna = calcularColuna(posicao);
 
     poltronas[linha][coluna] = &p;
+
+    //Se estiver ocupada, então a ocupação deu certo.
+    if (verifica(posicao)) {
+        qtdVagasLivres++;
+        return true;
+    }
+    //Se deu erro ao ocupar a poltrona.
+    return false;
 }
