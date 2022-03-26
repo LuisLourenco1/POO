@@ -2,7 +2,7 @@
 #include "Estudante.h"
 #include "Pessoa.h"
 #include "Professor.h"
-//#include "Sessao.h"
+#include "Sessao.h"
 #include <iostream>
 #include <string>
 
@@ -71,7 +71,6 @@ int main() {
 
     cout << endl;
 
-/*
     Sessao sessao("O Fantasma da Ópera", dh3);
 
     cout << sessao << endl;
@@ -82,6 +81,7 @@ int main() {
         string s = sessao.proximoLivre();
         sessao.ocupa(s, p1);
     }
+    /*
 
     // Alocando as poltronas C1-14 e D1-14 para Ana
 
