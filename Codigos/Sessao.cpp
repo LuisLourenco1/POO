@@ -48,4 +48,3 @@ bool Sessao::ocupa(string posicao, Pessoa &p) {
 
     poltronas[linha][coluna] = &p;
 }
-
