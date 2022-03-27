@@ -7,31 +7,27 @@ using namespace std;
 namespace poo {
 	class Sessao
 	{
-		// sobrecarga do operador << para imprimir as informações da sessão de teatro 
-		friend ostream &operator<<(ostream& output, Sessao &sessao);
+		friend ostream &operator<<(ostream& output, const Sessao &sessao);
 		public:
-		// Construtor com parâmetros
 			Sessao(string, DataHorario&);
-		// Destrutor
 			~Sessao();
-		// Método que verifica o número da próxima poltrona livre
-			string proximoLivre();
-		// Método boolean para verificar se a poltrona está ocupada
+			string proximoLivre() const;
 			bool verifica(string) const;
-		// Método boolean que ocupa a poltrona recebida por parâmetro
+			bool verifica(int, int) const;
 			bool ocupa(string, Pessoa&);
-		// Método boolean que desocupa a poltrona recebida por parâmetro
 			bool desocupa(string); 
-		// Método que retorna o número de assentos disponíveis
-			int vagas();
-		// Método que retorna o nome da peça
+			int vagas() const;
 			string getNomeDaPeca() const;
+			string posicaoDeLinhaColuna(int linha, int coluna) const;
+			int calcularLinha(string posicao) const;
+			int calcularColuna(string posicao) const;
+			bool linhaEColunaValidas(int, int) const;
+			Pessoa& pessoaDaPoltrona(int, int) const;
 		private:
-		
 			string nomeDaPeca;
 			DataHorario &dataHorario;
 			Pessoa *poltronas[15][14]; 
-			int qtdVagasLivres;
+			int qtdVagasLivres;		
 	};
 }
 #endif

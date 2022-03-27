@@ -3,8 +3,8 @@
 namespace poo {
     //Sobrecarga do operador de impressão.
     ostream &operator<<(ostream &output, const DataHorario &dataHorario) {  
-        output << dataHorario.dia << " de " << dataHorario.mes << " de " << dataHorario.ano << " - " << dataHorario.hora 
-        << "horas, " << dataHorario.minuto << "minutos, " << dataHorario.segundo << "segundos." << endl;
+        output << dataHorario.dia << " do " << dataHorario.mes << " de " << dataHorario.ano << " - " << dataHorario.hora 
+        << " horas, " << dataHorario.minuto << " minutos e " << dataHorario.segundo << " segundos." << endl;
         return output;
     }
     //Construtor com verificação da data.
@@ -32,7 +32,7 @@ namespace poo {
     }    
     //Destrutor.
     DataHorario::~DataHorario(){
-        cout << "Chamada do destrutor" << endl;
+        //cout << "Chamada do destrutor" << endl;
     }
     //Retorna o dia.
     int DataHorario::getDia() const{

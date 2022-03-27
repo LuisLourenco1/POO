@@ -73,14 +73,16 @@ int main() {
 
     Sessao sessao("O Fantasma da Ópera", dh3);
 
-    cout << sessao << endl;
+    //cout << sessao << endl;
 
     // Alocando as poltronas A1-14 e B1-14 para Pedro
-    
+    cout << "--------------------" << endl;
     for (int i = 0; i < 28; i++) {
         string s = sessao.proximoLivre();
         sessao.ocupa(s, p1);
     }
+
+    cout << sessao << endl;
     /*
 
     // Alocando as poltronas C1-14 e D1-14 para Ana

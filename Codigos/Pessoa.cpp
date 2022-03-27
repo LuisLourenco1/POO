@@ -15,7 +15,7 @@ namespace poo {
     
     // destrutor
     Pessoa::~Pessoa() {
-        cout << "Chamada do destrutor" << endl;
+        //cout << "Chamada do destrutor" << endl;
     }
 
     // retorna o nome
