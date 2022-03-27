@@ -14,7 +14,7 @@ namespace poo {
 
     // destrutor
     Professor::~Professor() {
-        cout << "Chamada do destrutor" << endl;
+        //cout << "Chamada do destrutor" << endl;
     }
 
     // retorna a universidade

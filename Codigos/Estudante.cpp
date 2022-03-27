@@ -18,7 +18,7 @@ namespace poo {
 
     // destrutor
     Estudante::~Estudante() {
-        cout << "Chamada do destrutor" << endl;
+        //cout << "Chamada do destrutor" << endl;
     }
 
     // retorna o RA
