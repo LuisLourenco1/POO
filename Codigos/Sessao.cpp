@@ -5,8 +5,7 @@
 
 namespace poo {
     Sessao::Sessao(string nomeDaPeca, DataHorario &h) : 
-        nomeDaPeca(nomeDaPeca), 
-        dataHorario(h) {
+        nomeDaPeca(nomeDaPeca), dataHorario(h) {
 
         for (int i = 0; i < 15; i++) {
             for (int j = 0; j < 14; j++) {
@@ -35,6 +34,7 @@ namespace poo {
                 }
             }
         }
+        return output;
     }
 
     string Sessao::getNomeDaPeca() const {

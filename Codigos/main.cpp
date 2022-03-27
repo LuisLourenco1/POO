@@ -41,7 +41,6 @@ int main() {
     Professor p2("David", "444.444.444-44", "UFSCar");
     cout << p2 << endl;
 
-
     DataHorario dh1(10, 3, 2022, 15, 57, 10);
     cout << dh1;
 
@@ -73,17 +72,14 @@ int main() {
 
     Sessao sessao("O Fantasma da Ópera", dh3);
 
-    //cout << sessao << endl;
+    cout << sessao << endl;
 
     // Alocando as poltronas A1-14 e B1-14 para Pedro
-    cout << "--------------------" << endl;
+    
     for (int i = 0; i < 28; i++) {
         string s = sessao.proximoLivre();
         sessao.ocupa(s, p1);
     }
-
-    cout << sessao << endl;
-    /*
 
     // Alocando as poltronas C1-14 e D1-14 para Ana
 
@@ -132,11 +128,13 @@ int main() {
 
     // Ocupando as 90 restantes poltronas para Davi
     // A1-14, B1-6, K1-14, L1-14, M1-14, N1-14 e O1-14
+
+    cout << "--------------------------------------------------------------------" << endl;
     
     for (int i = 0; i < 90; i++) {
         string s = sessao.proximoLivre();
         sessao.ocupa(s, p2);
     }
 
-    cout << sessao << endl;*/
+    cout << sessao << endl; 
 }
