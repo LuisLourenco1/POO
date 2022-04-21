@@ -90,7 +90,7 @@ namespace catalogo{
         return qt(1);
     }
 
-    int Museu::qtdeEscultutras(){
+    int Museu::qtdeEsculturas(){
         return qt(2);
     }
 
@@ -129,18 +129,18 @@ namespace catalogo{
         bubbleSort();
         while(i < obras.size()){
             switch(categoria){
+                //Caso categoria passada por parâmetro seja 0, imprime todos.
                 case 0:
-                if(obras[i]->getCategoria() == 1)
-                    Pintura::obras[i]->imprimeFicha();
-                else
-                    Escultura::obras[i]->imprimeFicha();
+                    obras[i]->imprimeFicha();
                 case 1:
+                    //Apenas imprime pinturas.
                     if(obras[i]->getCategoria() == 1)
-                        Pintura::obras[i]->imprimeFicha();
+                        obras[i]->imprimeFicha();
                     break;
                 case 2:
-                    if(obras[i]->getCategoria == 2)
-                        Escultura::obras[i]->imprimeFicha();
+                    //Apenas imprime esculturas.
+                    if(obras[i]->getCategoria() == 2)
+                        obras[i]->imprimeFicha();
                     break;
             }
         }

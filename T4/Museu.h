@@ -27,7 +27,7 @@ namespace catalogo{
         int qt(int); //Método auxiliar para as funções qtdeObras, qtdeEsculturas e qtdepinturas. 
         int qtdeObras(); //Método retorna quantidade de obras no catalogo.
         int qtdePinturas(); //Método retona quantidade de pinturas no catalogo.
-        int qtdeEscultutras(); //Métode retorna quantidade de esculturas no catalogo.
+        int qtdeEsculturas(); //Métode retorna quantidade de esculturas no catalogo.
         void bubbleSort(); //procedimento auxiliar a função imprime.
         void imprime(int); //Procedimento imprime a ficha de obras no catálogo de acordo com a categoria.
     };
