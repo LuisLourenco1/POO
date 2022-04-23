@@ -2,6 +2,18 @@
 
 namespace catalogo{
 
+    bool operator==(const ObraDeArte &obra1, const ObraDeArte &obra2) {
+        if (obra1.getTitulo() != obra2.getTitulo())
+            return false;
+        if (obra1.getMaterial() != obra2.getMaterial())
+            return false;
+        if (obra1.getArtista() != obra2.getArtista())
+            return false;
+        if (obra1.getAno() != obra2.getAno())
+            return false;
+        return true;
+    }
+
     Museu::Museu(string nome) : nome(nome){}
 
     Museu::~Museu(){
@@ -32,7 +44,7 @@ namespace catalogo{
     bool Museu::removeObra(string titulo){
         int i = 0;
         //Procurando o título passado como parâmetro.
-        while(i < obras.size() && !obras[i]->getTitulo().string::compare(titulo)){
+        while(i < obras.size() && obras[i]->getTitulo().string::compare(titulo)){
             i++;
         }
         if(i != obras.size()){
@@ -46,7 +58,7 @@ namespace catalogo{
 
     ObraDeArte * Museu::obtemObra(string titulo){
         int i = 0;
-        while(i < obras.size() && !obras[i]->getTitulo().string::compare(titulo)){
+        while(i < obras.size() && obras[i]->getTitulo().string::compare(titulo)){
             i++;
         }
         //Retornando obra com titulo igual ao passado por parâmetro.
@@ -68,6 +80,7 @@ namespace catalogo{
             //Contador de esculturas.
             else
                 esculturas++;
+            i++;
         }
         //Retorna a quantidade de acordo com a categoria passada por parâmetro.
         switch(categoria){
@@ -132,15 +145,19 @@ namespace catalogo{
                 //Caso categoria passada por parâmetro seja 0, imprime todos.
                 case 0:
                     obras[i]->imprimeFicha();
+                    i++;
+                    break;
                 case 1:
                     //Apenas imprime pinturas.
                     if(obras[i]->getCategoria() == 1)
                         obras[i]->imprimeFicha();
+                    i++;
                     break;
                 case 2:
                     //Apenas imprime esculturas.
                     if(obras[i]->getCategoria() == 2)
                         obras[i]->imprimeFicha();
+                    i++;
                     break;
             }
         }

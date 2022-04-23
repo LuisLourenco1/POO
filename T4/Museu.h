@@ -13,6 +13,7 @@ using namespace std;
 
 namespace catalogo{
     class Museu{
+        friend bool operator==(const ObraDeArte &, const ObraDeArte &); // sobrecarga do operador == para comparar obras de arte
     private:
         string nome; 
         vector<ObraDeArte*> obras; //Armazena todas as obras no catálogo do museu.  
