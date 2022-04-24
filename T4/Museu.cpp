@@ -1,4 +1,5 @@
 #include "Museu.h"
+#include "Categoria.h"
 
 namespace catalogo{
 
@@ -84,11 +85,11 @@ namespace catalogo{
         }
         //Retorna a quantidade de acordo com a categoria passada por parâmetro.
         switch(categoria){
-            case 0:
+            case TODOS:
                 return pinturas+esculturas;
-            case 1:
+            case PINTURA:
                 return pinturas;
-            case 2:
+            case ESCULTURA:
                 return esculturas;
             default:
                 return 0;
@@ -143,17 +144,17 @@ namespace catalogo{
         while(i < obras.size()){
             switch(categoria){
                 //Caso categoria passada por parâmetro seja 0, imprime todos.
-                case 0:
+                case TODOS:
                     obras[i]->imprimeFicha();
                     i++;
                     break;
-                case 1:
+                case PINTURA:
                     //Apenas imprime pinturas.
                     if(obras[i]->getCategoria() == 1)
                         obras[i]->imprimeFicha();
                     i++;
                     break;
-                case 2:
+                case ESCULTURA:
                     //Apenas imprime esculturas.
                     if(obras[i]->getCategoria() == 2)
                         obras[i]->imprimeFicha();

@@ -1,4 +1,5 @@
 #include"Pintura.h"
+#include "Categoria.h"
 
 namespace catalogo {
     Pintura::Pintura(string titulo, string artista, string material, int anoCriacao, string tipo) : ObraDeArte(titulo, artista, material, anoCriacao), tipo(tipo) {}
@@ -9,7 +10,7 @@ namespace catalogo {
 
     // como o objeto dessa classe será sempre uma pintura, então esse método sempre retorna 1
     int Pintura::getCategoria() const {
-        return 1;
+        return PINTURA;
     }
 
     string Pintura::getTipo() const {

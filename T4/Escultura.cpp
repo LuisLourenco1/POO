@@ -1,4 +1,5 @@
 #include"Escultura.h"
+#include "Categoria.h"
 
 namespace catalogo {
     Escultura::Escultura(string titulo, string artista, string material, int anoCriacao, double altura) : ObraDeArte(titulo, artista, material, anoCriacao) {
@@ -11,7 +12,7 @@ namespace catalogo {
 
     // como o objeto dessa classe será sempre uma Escultura, então esse método sempre retorna 2
     int Escultura::getCategoria() const {
-        return 2;
+        return ESCULTURA;
     }
 
     double Escultura::getAltura() const {
